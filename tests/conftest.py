@@ -1,5 +1,5 @@
 import logging
-
+import os
 import pytest
 
 
@@ -17,6 +17,7 @@ def url(request):
 def logger_test(request):
     logger = logging.getLogger('testing')
     log_level = request.config.getoption("--log_level")
+    os.makedirs('logs', exist_ok=True)
     file_handler = logging.FileHandler(f"logs/{request.node.name}.log")
     file_handler.setFormatter(logging.Formatter('%(levelname)s %(message)s'))
     logger.addHandler(file_handler)
