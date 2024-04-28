@@ -1,0 +1,5 @@
+[32mINFO    [0m testing:base_request.py:40 Method: GET
+[32mINFO    [0m testing:base_request.py:41 URL: https://petstore.swagger.io/v2/store/inventory
+[32mINFO    [0m testing:base_request.py:42 Request headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}
+[32mINFO    [0m testing:base_request.py:43 Response headers: {'Date': 'Sun, 28 Apr 2024 18:09:42 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'}
+[32mINFO    [0m testing:base_request.py:44 Response: {'22': 1, 'a': 2, 'sold': 33, '5000': 1, '6000': 1, 'string': 7, 'test': 1, 'NOT available': 1, 'pending': 15, 'available': 923, 'weisskeiner1': 1, 'Not Available': 1, 'cold': 1, '{{Status}}': 1, 'soldout': 1, 'Unavailable': 1, 'Forever': 1, 'good pet': 1, 'happy!!!': 1, 'Yosra': 1, 'do not touch': 1, 'availablegdfs': 1}

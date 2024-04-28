@@ -1,0 +1,1 @@
+{"name": "Проверка получения заказа по несуществующему id", "status": "passed", "start": 1714319113025, "stop": 1714319135830, "uuid": "857431c9-937e-4e7e-abbb-87cabf662ba5", "testCaseId": "fd395fb132282755c495bd57f8fec1ef", "fullName": "tests.test_store_api.TestPetApi#test_get_store_inventory"}

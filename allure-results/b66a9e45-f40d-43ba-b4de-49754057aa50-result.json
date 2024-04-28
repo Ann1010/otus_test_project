@@ -1,0 +1,1 @@
+{"name": "Проверка получения заказа по id", "status": "passed", "start": 1714319433169, "stop": 1714319456162, "uuid": "ffe54279-3239-46e9-aeae-d2b686f15287", "testCaseId": "56c32148b4fa6618bf5b6a2cd9edc458", "fullName": "tests.test_store_api.TestOrderApi#test_get_store_order_by_id"}
