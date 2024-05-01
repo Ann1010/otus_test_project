@@ -1,4 +1,0 @@
-[32mINFO    [0m TestWishListPage:base_page.py:42 NavigationPanel: Clicking element: ('xpath', "//div[@id='narbar-menu']//a[text()='Phones & PDAs']")
-[32mINFO    [0m TestWishListPage:base_page.py:69 NavigationPanel: Check if elements ('xpath', "//div[@class='product-thumb']") is present
-[32mINFO    [0m TestWishListPage:base_page.py:42 CatalogPage: Clicking element: ('xpath', "//button[@class='btn-close']")
-[32mINFO    [0m TestWishListPage:base_page.py:42 TopPanel: Clicking element: ('xpath', "//i[@class='fa-solid fa-heart']")
