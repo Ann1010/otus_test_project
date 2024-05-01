@@ -5,7 +5,7 @@ class UserApi(BaseRequest):
     def __init__(self, logger):
         super().__init__(BASE_URL_PETSTORE, logger=logger)
 
-    def post_user_create_with_list(self, username, body, expected_error=False):
+    def post_user_create_with_list(self, body, expected_error=False):
         return self.post(f'user/createWithList', body=body, expected_error=expected_error)
 
     def get_user_by_username(self, username, expected_error=False):
@@ -15,7 +15,7 @@ class UserApi(BaseRequest):
         return self.put(f'user/{username}', body=body, expected_error=expected_error)
 
     def delete_user(self, username, expected_error=False):
-        return self.delete(f'user/{username}', expected_error=expected_error)
+        return self.delete('user', username, expected_error=expected_error)
 
     def get_user_login(self, body, expected_error=False):
         return self.get(f'user/login', params=body, expected_error=expected_error)

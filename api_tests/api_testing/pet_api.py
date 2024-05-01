@@ -9,8 +9,8 @@ class PetApi(BaseRequest):
         return self.get('pet/findByStatus', params=params,
                         expected_error=expected_error)
 
-    def get_pet_find_by_id(self, id, expected_error=False):
-        return self.get(f'pet/{id}', expected_error=expected_error)
+    def get_pet_find_by_id(self, pet_id, expected_error=False):
+        return self.get(f'pet/{pet_id}', expected_error=expected_error)
 
     def post_pet(self, body, expected_error=False):
         return self.post('pet', body=body,  expected_error=expected_error)
@@ -18,9 +18,9 @@ class PetApi(BaseRequest):
     def put_pet(self, body, expected_error=False):
         return self.put('pet', body=body,  expected_error=expected_error)
 
-    def post_pet_by_id(self,id,  body, expected_error=False):
+    def post_pet_by_id(self, pet_id, body, expected_error=False):
         self.headers.update({"Content-Type": "application/x-www-form-urlencoded"})
-        return self.post(f'pet/{id}', body=body, is_json=False, expected_error=expected_error)
+        return self.post(f'pet/{pet_id}', body=body, is_json=False, expected_error=expected_error)
     
-    def delete_pet(self, petId, expected_error=False):
-        return self.delete('pet', petId,  expected_error=expected_error)
+    def delete_pet(self, pet_id, expected_error=False):
+        return self.delete('pet', pet_id, expected_error=expected_error)

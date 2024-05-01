@@ -1,5 +1,5 @@
-import os
 import random
+import sys
 
 import allure
 import pytest
@@ -7,8 +7,6 @@ import pytest
 from api_tests.api_testing.pet_api import PetApi
 from api_tests.helpers import checker as check
 from api_tests.helpers import common
-
-import sys
 
 sys.path.append(".")
 
@@ -51,10 +49,10 @@ class TestPetApi:
         check.check_json(choose_pet_data[0], response.json())
 
     @allure.title('Проверка получения информации по некорректному ID')
-    @pytest.mark.parametrize('id', ['922337203685477580e7', '0000000', '111111111111111111111'])
-    def test_get_pet_by_non_existent_id(self, id, logger_test):
+    @pytest.mark.parametrize('pet_id', ['922337203685477580e7', '0000000', '111111111111111111111'])
+    def test_get_pet_by_non_existent_id(self, pet_id, logger_test):
         pet_api = PetApi(logger=logger_test)
-        response = pet_api.get_pet_find_by_id(id, expected_error=True)
+        response = pet_api.get_pet_find_by_id(pet_id, expected_error=True)
         check.status_code(404, response)
 
     @allure.title('Проверка обновления карточки питомца')
@@ -81,7 +79,7 @@ class TestPetApi:
                   ],
                   "status": new_status
                 }
-        with allure.step(f'Обновление картоки с id={choose_id}: new_name = {new_name}, new_status = {new_status}'):
+        with allure.step(f'Обновление карточки с id={choose_id}: new_name = {new_name}, new_status = {new_status}'):
             put_response = pet_api.put_pet(body=body)
             check.status_code(200, put_response)
             get_response = pet_api.get_pet_find_by_id(choose_id).json()
@@ -162,7 +160,7 @@ class TestPetApi:
         new_name = common.generate_random_text_value()
         new_status = random.choice(['available', 'sold', 'pending'])
         body = f"name={new_name}&status={new_status}"
-        with allure.step(f'Обновление картоки по id={choose_id}: new_name = {new_name}, new_status = {new_status}'):
+        with allure.step(f'Обновление карточки по id={choose_id}: new_name = {new_name}, new_status = {new_status}'):
             put_response = pet_api.post_pet_by_id(choose_id, body=body, expected_error=True)
             check.status_code(404, put_response)
             assert put_response.json()['message'] == 'not found', \
@@ -171,17 +169,17 @@ class TestPetApi:
     @allure.title('Проверка удаления карточки питомца')
     def test_delete_pet(self, logger_test):
         pet_api = PetApi(logger=logger_test)
-        id = 9223372036854775807
-        response = pet_api.delete_pet(petId=id, expected_error=True)
+        pet_id = 9223372036854775807
+        response = pet_api.delete_pet(pet_id=pet_id, expected_error=True)
         check.status_code(200, response)
-        response = pet_api.get_pet_find_by_id(id, expected_error=True)
+        response = pet_api.get_pet_find_by_id(pet_id, expected_error=True)
         check.status_code(404, response)
 
     @allure.title('Удаление карточки питомца по несуществующему ID')
     def test_delete_non_existent_pet(self, logger_test):
         pet_api = PetApi(logger=logger_test)
-        id = 92233720368547758077
-        response = pet_api.delete_pet(petId=id, expected_error=True)
+        pet_id = 92233720368547758077
+        response = pet_api.delete_pet(pet_id=pet_id, expected_error=True)
         check.status_code(404, response)
 
 

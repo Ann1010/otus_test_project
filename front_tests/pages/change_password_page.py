@@ -1,5 +1,3 @@
-import time
-
 import allure
 from selenium.webdriver.common.by import By
 
@@ -15,5 +13,13 @@ class ChangePasswordPage(BasePage):
         with allure.step('Нажатие на кнопку Continue'):
             self.click(self.CONTINUE_BUTTON)
 
-
-
+    def change_password(self, password, password_confirm) -> None:
+        """
+        Изменение пароля.
+        :param password: Новый пароль
+        :param password_confirm: Подтверждение нового пароля
+        """
+        with allure.step('Изменение пароля'):
+            self.fill_input_field('Password', password)
+            self.fill_input_field('Password Confirm', password_confirm)
+            self.click_continue_button()

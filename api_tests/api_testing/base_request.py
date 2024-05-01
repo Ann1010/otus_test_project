@@ -1,8 +1,5 @@
-import requests
-import pprint
-import logging
 import allure
-import pytest
+import requests
 
 BASE_URL_PETSTORE = 'https://petstore.swagger.io/v2'
 
@@ -15,7 +12,6 @@ class BaseRequest:
 
     def _request(self, url, request_type,
                  payload=None, params=None, is_json=False, expected_error=False):
-        pprint.pprint(f'Request to: {url}')
         stop_flag = False
         while not stop_flag:
             if request_type == 'GET':
@@ -46,23 +42,26 @@ class BaseRequest:
 
     def get(self, endpoint, params=None, expected_error=False):
         url = f'{self.url}/{endpoint}'
-        with allure.step(f'Выполнить запрос GET {url}, headers={self.headers}, params={params}'):
+        with allure.step(f'Выполнение запроса GET {url}, params={params}'):
             response = self._request(url, 'GET', params=params, expected_error=expected_error)
             return response
 
     def post(self, endpoint, body, is_json=True, expected_error=False):
         url = f'{self.url}/{endpoint}'
-        response = self._request(url, 'POST', payload=body, is_json=is_json,
-                                 expected_error=expected_error)
-        return response
+        with allure.step(f'Выполнение запроса POST {url}, body={body}'):
+            response = self._request(url, 'POST', payload=body, is_json=is_json,
+                                     expected_error=expected_error)
+            return response
 
     def put(self, endpoint, body, is_json=True, expected_error=False):
         url = f'{self.url}/{endpoint}'
-        response = self._request(url, 'PUT', payload=body, is_json=is_json,
-                                 expected_error=expected_error)
-        return response
+        with allure.step(f'Выполнение запроса PUT {url}, body={body}'):
+            response = self._request(url, 'PUT', payload=body, is_json=is_json,
+                                     expected_error=expected_error)
+            return response
 
     def delete(self, endpoint, endpoint_id, expected_error=False):
         url = f'{self.url}/{endpoint}/{endpoint_id}'
-        response = self._request(url, 'DELETE', expected_error=expected_error)
-        return response
+        with allure.step(f'Выполнение запроса DELETE {url}'):
+            response = self._request(url, 'DELETE', expected_error=expected_error)
+            return response

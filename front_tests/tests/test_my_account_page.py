@@ -3,15 +3,14 @@ import sys
 import allure
 import pytest
 
-from front_tests.pages.address_book_page import AddressBookPage
-from front_tests.pages.login_page import LoginPage
-from front_tests.pages.my_account_page import MyAccountPage
-from front_tests.pages.top_panel import TopPanel
-from front_tests.pages.register_page import RegisterPage
 from front_tests.helpers import help
-
+from front_tests.pages.address_book_page import AddressBookPage
+from front_tests.pages.my_account_page import MyAccountPage
+from front_tests.pages.register_page import RegisterPage
+from front_tests.pages.top_panel import TopPanel
 
 sys.path.append(".")
+
 
 @pytest.mark.front
 @allure.epic("Front")
@@ -33,7 +32,7 @@ class TestAccountPage:
         self.page.open_my_account_tab('My Account')
         self.page.wait_title('My Account')
 
-    @allure.story('Проверка раздела My Account')
+    @allure.story('Проверка раздела на странице My Account')
     def test_check_my_account_page(self, browser):
         page = MyAccountPage(browser)
         page.check_my_account_tabs()
@@ -54,7 +53,8 @@ class TestAccountPage:
         page = MyAccountPage(browser)
         page.go_to_tab('Edit Account', title='My Account Information')
         page.edit_personal_details(first_name='', last_name=self.last_name, email=self.email)
-        assert page.get_element(MyAccountPage.ERROR_FIRSTNAME_MESSAGE).text == 'First Name must be between 1 and 32 characters!', \
+        assert page.get_element(MyAccountPage.ERROR_FIRSTNAME_MESSAGE).text == ('First Name must be between 1 and 32 '
+                                                                                'characters!'), \
             "При не заполненном поле First Name не отображается ошибка First Name must be between 1 and 32 characters!"
         page.edit_personal_details(first_name=self.first_name, last_name='', email=self.email)
         assert page.get_element(
@@ -71,7 +71,8 @@ class TestAccountPage:
         page = MyAccountPage(browser)
         page.go_to_tab('Edit Account', title='My Account Information')
         page.edit_personal_details(first_name=incorrect_value, last_name=self.last_name, email=self.email)
-        assert page.get_element(MyAccountPage.ERROR_FIRSTNAME_MESSAGE).text == 'First Name must be between 1 and 32 characters!', \
+        assert page.get_element(MyAccountPage.ERROR_FIRSTNAME_MESSAGE).text == ('First Name must be between 1 and 32 '
+                                                                                'characters!'), \
             "При не заполненном поле First Name не отображается ошибка First Name must be between 1 and 32 characters!"
         page.edit_personal_details(first_name=self.first_name, last_name=incorrect_value, email=self.email)
         assert page.get_element(
@@ -86,10 +87,11 @@ class TestAccountPage:
         page.go_to_tab('Edit Account', title='My Account Information')
         page.edit_personal_details(first_name=new_first_name, last_name=new_last_name, email=self.email)
         page.wait_title('My Account')
-        assert page.get_element(MyAccountPage.SUCCESS_MESSAGE).text == 'Success: Your account has been successfully updated.', \
+        assert page.get_element(MyAccountPage.SUCCESS_MESSAGE).text == ('Success: Your account has been successfully '
+                                                                        'updated.'), \
             "После обновления данных не отображается сообщение: Success: Your account has been successfully updated."
 
-    @allure.story('Проверка добавления адреса')
+    @allure.story('Проверка создания нового адреса')
     def test_check_add_address(self, browser):
         page = MyAccountPage(browser)
         page.go_to_tab('Address Book')

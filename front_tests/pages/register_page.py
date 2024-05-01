@@ -11,12 +11,11 @@ class RegisterPage(BasePage):
     LASTNAME_INPUT = (By.ID, "input-lastname")
     EMAIL_INPUT = (By.ID, "input-email")
     PASSWORD_INPUT = (By.ID, "input-password")
-    NEWSLETTER_TUMBLER = (By.ID, "input-newsletter")
     AGREE_TUMBLER = (By.XPATH, "//input[@name='agree']")
     CONTINUE_BUTTON = (By.XPATH, "//button[contains(text(), 'Continue')]")
 
-    def register_user(self, first_name: str, lastname: str,
-                    email: str, password: str):
+    def register_user(self, first_name: str, lastname: str, email: str, password: str) -> None:
+        """Регистрация нового пользователя"""
         with allure.step(f"Регистрация пользователя {first_name} {lastname}"):
             self.input_value(self.FIRST_NAME_INPUT, first_name)
             self.input_value(self.LASTNAME_INPUT, lastname)
@@ -29,5 +28,3 @@ class RegisterPage(BasePage):
             self.set_checkbox(agree_tumbler, True)
             self.click(self.CONTINUE_BUTTON)
             self.wait_title('Your Account Has Been Created!')
-
-

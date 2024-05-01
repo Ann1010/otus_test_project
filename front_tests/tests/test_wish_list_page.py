@@ -3,14 +3,12 @@ import sys
 import allure
 import pytest
 
+from front_tests.helpers import help
 from front_tests.pages.catalog_page import CatalogPage
-from front_tests.pages.login_page import LoginPage
 from front_tests.pages.navigation_panel import NavigationPanel
+from front_tests.pages.register_page import RegisterPage
 from front_tests.pages.top_panel import TopPanel
 from front_tests.pages.wish_list_page import WishListPage
-from front_tests.pages.register_page import RegisterPage
-from front_tests.helpers import help
-
 
 sys.path.append(".")
 

@@ -28,7 +28,7 @@ def status_code(expected, actual):
 def check_value(response, expected_value, resp_value):
     with allure.step(f'Проверка значения параметра {resp_value} в ответе запроса'): 
         assert response[resp_value] == expected_value, \
-            (f"Значение в парамтре {resp_value} отличается от ожидаемого\n"
+            (f"Значение в параметре {resp_value} отличается от ожидаемого\n"
              f"ОР: {expected_value}\n"
              f"ФР: {response[resp_value]}")
 

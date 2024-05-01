@@ -3,20 +3,19 @@ import sys
 import allure
 import pytest
 
+from front_tests.helpers import help
 from front_tests.pages.address_book_page import AddressBookPage
 from front_tests.pages.catalog_page import CatalogPage
 from front_tests.pages.checkout_page import CheckoutPage
-from front_tests.pages.login_page import LoginPage
 from front_tests.pages.my_account_page import MyAccountPage
 from front_tests.pages.navigation_panel import NavigationPanel
 from front_tests.pages.orders_page import OrdersPage
+from front_tests.pages.register_page import RegisterPage
 from front_tests.pages.shopping_cart_page import ShoppingCartPage
 from front_tests.pages.top_panel import TopPanel
-from front_tests.pages.register_page import RegisterPage
-from front_tests.helpers import help
-
 
 sys.path.append(".")
+
 
 @pytest.mark.front
 @allure.epic("Front")

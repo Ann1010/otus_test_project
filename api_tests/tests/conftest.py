@@ -9,11 +9,6 @@ def pytest_addoption(parser):
 
 
 @pytest.fixture(scope='session', autouse=True)
-def api_url(request):
-    return request.config.getoption("--api_url")
-
-
-@pytest.fixture(scope='session', autouse=True)
 def logger_test(request):
     logger = logging.getLogger('testing')
     api_log_level = request.config.getoption("--api_log_level")

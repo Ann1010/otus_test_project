@@ -24,8 +24,6 @@ def pytest_addoption(parser):
     parser.addoption("--video", action="store_true", default=False)
     parser.addoption("--bv", default="121.0")
     parser.addoption("--executor", action="store", default="192.168.0.133")
-    # parser.addoption("--executor", action="store", default="local")
-    parser.addoption("--log_level", action="store", default="INFO")
     parser.addoption("--headless", action="store_true", default=True)
     parser.addoption("--drivers", default=os.path.expanduser("~/Downloads/drivers"))
 
@@ -48,7 +46,7 @@ def wait_url_data(url, timeout=10):
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 # https://github.com/pytest-dev/pytest/issues/230#issuecomment-402580536
-def pytest_runtest_makereport(item, call):
+def pytest_runtest_makereport(item):
     outcome = yield
     rep = outcome.get_result()
     if rep.outcome != "passed":
@@ -73,13 +71,12 @@ def browser(request, url):
     mobile = request.config.getoption("--mobile")
     headless = request.config.getoption("--headless")
     drivers = request.config.getoption("--drivers")
-    log_level = request.config.getoption("--log_level")
 
     logger = logging.getLogger(request.node.name)
     file_handler = logging.FileHandler(f"logs/{request.node.name}.log")
     file_handler.setFormatter(logging.Formatter('%(levelname)s %(message)s'))
     logger.addHandler(file_handler)
-    logger.setLevel(level=log_level)
+    logger.setLevel(level='INFO')
 
     if executor == "local":
         caps = {"goog:chromeOption": {}}
@@ -166,26 +163,13 @@ def browser(request, url):
 
     logger.info("===> Test %s started at %s" % (request.node.name, datetime.datetime.now()))
 
-    driver.log_level = log_level
+    driver.log_level = 'INFO'
     driver.logger = logger
     driver.test_name = request.node.name
 
     logger.info("Browser %s started" % driver)
 
     def finalizer():
-        # video_url = f"http://{executor}:8080/video/{driver.session_id}.mp4"
-        #
-        # if request.node.status == "failed":
-        #     if video:
-        #         allure.attach(
-        #             body=wait_url_data(video_url),
-        #             name="video_for_" + driver.session_id,
-        #             attachment_type=allure.attachment_type.MP4,
-        #         )
-        #
-        # if video and wait_url_data(video_url):
-        #     requests.delete(url=video_url)
-
         driver.quit()
 
     request.addfinalizer(finalizer)

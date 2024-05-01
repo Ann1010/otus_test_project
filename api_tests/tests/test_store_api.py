@@ -1,16 +1,15 @@
-import os
 import random
-import pytest
+import sys
 
 import allure
+import pytest
 
 from api_tests.api_testing.pet_api import PetApi
 from api_tests.api_testing.store_api import StoreApi
 from api_tests.helpers import checker as check
 
-import sys
-
 sys.path.append(".")
+
 
 @pytest.mark.api
 @allure.epic('API')
@@ -27,7 +26,7 @@ class TestOrderApi:
 
     @allure.title('Проверка создания заказа')
     def test_post_store_order(self, logger_test):
-        with allure.step('Получение ID рандомного питомца'):
+        with allure.step('Получение ID случайного питомца'):
             pet_api = PetApi(logger=logger_test)
             available_pets = pet_api.get_pet_find_by_status(params={'status': 'available'}).json()
             pet_id_list = [pet['id'] for pet in available_pets]
@@ -64,8 +63,8 @@ class TestOrderApi:
     @allure.title('Проверка удаления заказа')
     def test_delete_order(self, logger_test):
         order_api = StoreApi(logger=logger_test)
-        id = 2
-        response = order_api.delete_order_by_id(order_id=id)
+        order_id = 2
+        response = order_api.delete_order_by_id(order_id=order_id)
         check.status_code(200, response)
-        response = order_api.get_store_order_by_id(id, expected_error=True)
+        response = order_api.get_store_order_by_id(order_id, expected_error=True)
         check.status_code(404, response)

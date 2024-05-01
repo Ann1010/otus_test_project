@@ -1,16 +1,14 @@
-import os
-import random
-import pytest
+import sys
 
 import allure
+import pytest
 
 from api_tests.api_testing.user_api import UserApi
 from api_tests.helpers import checker as check
 from api_tests.helpers import common
 
-import sys
-
 sys.path.append(".")
+
 
 @pytest.mark.api
 @allure.epic('API')
@@ -29,7 +27,7 @@ class TestUserApi:
                 "userStatus": 0}
         response = user_api.post_user(body=body)
         check.status_code(200, response)
-        new_user_id = 9223372036854774791  # новый пользователь всегда создается с этим id
+        new_user_id = 9223372036854775039  # новый пользователь всегда создается с этим id
         body['id'] = new_user_id
         get_response = user_api.get_user_by_username('ivan_test')
         check.status_code(200, get_response)
