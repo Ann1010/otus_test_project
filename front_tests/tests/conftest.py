@@ -26,7 +26,7 @@ def pytest_addoption(parser):
     parser.addoption("--executor", action="store", default="192.168.0.133")
     # parser.addoption("--executor", action="store", default="local")
     parser.addoption("--log_level", action="store", default="INFO")
-    parser.addoption("--headless", action="store_true", default=False)
+    parser.addoption("--headless", action="store_true", default=True)
     parser.addoption("--drivers", default=os.path.expanduser("~/Downloads/drivers"))
 
 
