@@ -1,7 +1,0 @@
-[32mINFO    [0m TestChangePasswordPage:base_page.py:42 MyAccountPage: Clicking element: ('xpath', "//div[@class='list-group mb-3']//a[contains(text(), 'Password')]")
-[32mINFO    [0m TestChangePasswordPage:base_page.py:50 MyAccountPage: Input 123 in input ('xpath', "//input[@placeholder='Password']")
-[32mINFO    [0m TestChangePasswordPage:base_page.py:58 MyAccountPage: Check if element ('xpath', "//input[@placeholder='Password']") is present
-[32mINFO    [0m TestChangePasswordPage:base_page.py:42 ChangePasswordPage: Clicking element: ('xpath', "//button[text()='Continue']")
-[32mINFO    [0m TestChangePasswordPage:base_page.py:50 MyAccountPage: Input 123456789012345678901 in input ('xpath', "//input[@placeholder='Password']")
-[32mINFO    [0m TestChangePasswordPage:base_page.py:58 MyAccountPage: Check if element ('xpath', "//input[@placeholder='Password']") is present
-[32mINFO    [0m TestChangePasswordPage:base_page.py:42 ChangePasswordPage: Clicking element: ('xpath', "//button[text()='Continue']")

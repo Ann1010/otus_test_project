@@ -160,6 +160,7 @@ cython_debug/
 #.idea/
 
 *.json
+allure/
 allure-report/
 allure-results/
 *.txt
