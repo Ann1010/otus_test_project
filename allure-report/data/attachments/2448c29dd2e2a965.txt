@@ -1,0 +1,2 @@
+[32mINFO    [0m TestAccountPage:base_page.py:42 MyAccountPage: Clicking element: ('xpath', "//div[@class='list-group mb-3']//a[contains(text(), 'Edit Account')]")
+[32mINFO    [0m TestAccountPage:base_page.py:42 MyAccountPage: Clicking element: ('xpath', "//a[text()='Back']")

@@ -1,0 +1,20 @@
+[32mINFO    [0m TestWishListPage:conftest.py:167 ===> Test TestWishListPage started at 2024-05-01 13:52:16.029959
+[32mINFO    [0m TestWishListPage:conftest.py:173 Browser <selenium.webdriver.chrome.webdriver.WebDriver (session="186dc77613a2799818ab9aedffc4b92b")> started
+[32mINFO    [0m TestWishListPage:base_page.py:29 RegisterPage: Opening url: http://192.168.0.133:8081/index.php?route=account/register
+[32mINFO    [0m TestWishListPage:base_page.py:50 RegisterPage: Input test_user_firstname in input ('id', 'input-firstname')
+[32mINFO    [0m TestWishListPage:base_page.py:58 RegisterPage: Check if element ('id', 'input-firstname') is present
+[32mINFO    [0m TestWishListPage:base_page.py:50 RegisterPage: Input test_user_lastname in input ('id', 'input-lastname')
+[32mINFO    [0m TestWishListPage:base_page.py:58 RegisterPage: Check if element ('id', 'input-lastname') is present
+[32mINFO    [0m TestWishListPage:base_page.py:50 RegisterPage: Input qfhLCDAFHZ@VyOGA.com in input ('id', 'input-email')
+[32mINFO    [0m TestWishListPage:base_page.py:58 RegisterPage: Check if element ('id', 'input-email') is present
+[32mINFO    [0m TestWishListPage:base_page.py:50 RegisterPage: Input 123456aS! in input ('id', 'input-password')
+[32mINFO    [0m TestWishListPage:base_page.py:58 RegisterPage: Check if element ('id', 'input-password') is present
+[32mINFO    [0m TestWishListPage:base_page.py:58 RegisterPage: Check if element ('xpath', "//button[contains(text(), 'Continue')]") is present
+[32mINFO    [0m TestWishListPage:base_page.py:58 RegisterPage: Check if element ('xpath', "//input[@name='agree']") is present
+[32mINFO    [0m TestWishListPage:base_page.py:42 RegisterPage: Clicking element: ('xpath', "//button[contains(text(), 'Continue')]")
+[32mINFO    [0m TestWishListPage:base_page.py:42 TopPanel: Clicking element: ('xpath', "//i[@class='fa-solid fa-user']")
+[32mINFO    [0m TestWishListPage:base_page.py:42 TopPanel: Clicking element: ('xpath', "//a[@class='dropdown-item'][contains(text(), 'My Account')]")
+[32mINFO    [0m TestWishListPage:base_page.py:42 NavigationPanel: Clicking element: ('xpath', "//div[@id='narbar-menu']//a[text()='Phones & PDAs']")
+[32mINFO    [0m TestWishListPage:base_page.py:69 NavigationPanel: Check if elements ('xpath', "//div[@class='product-thumb']") is present
+[32mINFO    [0m TestWishListPage:base_page.py:42 CatalogPage: Clicking element: ('xpath', "//button[@class='btn-close']")
+[32mINFO    [0m TestWishListPage:base_page.py:42 TopPanel: Clicking element: ('xpath', "//i[@class='fa-solid fa-heart']")

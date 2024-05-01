@@ -1,0 +1,20 @@
+[32mINFO    [0m TestAccountPage:conftest.py:167 ===> Test TestAccountPage started at 2024-05-01 13:51:20.549977
+[32mINFO    [0m TestAccountPage:conftest.py:173 Browser <selenium.webdriver.chrome.webdriver.WebDriver (session="d5bfeec81f4655d96370b682c431d9fa")> started
+[32mINFO    [0m TestAccountPage:base_page.py:29 RegisterPage: Opening url: http://192.168.0.133:8081/index.php?route=account/register
+[32mINFO    [0m TestAccountPage:base_page.py:50 RegisterPage: Input test_user in input ('id', 'input-firstname')
+[32mINFO    [0m TestAccountPage:base_page.py:58 RegisterPage: Check if element ('id', 'input-firstname') is present
+[32mINFO    [0m TestAccountPage:base_page.py:50 RegisterPage: Input test_lastname in input ('id', 'input-lastname')
+[32mINFO    [0m TestAccountPage:base_page.py:58 RegisterPage: Check if element ('id', 'input-lastname') is present
+[32mINFO    [0m TestAccountPage:base_page.py:50 RegisterPage: Input zUTtdfLBQF@XDFcK.com in input ('id', 'input-email')
+[32mINFO    [0m TestAccountPage:base_page.py:58 RegisterPage: Check if element ('id', 'input-email') is present
+[32mINFO    [0m TestAccountPage:base_page.py:50 RegisterPage: Input 123456aS! in input ('id', 'input-password')
+[32mINFO    [0m TestAccountPage:base_page.py:58 RegisterPage: Check if element ('id', 'input-password') is present
+[32mINFO    [0m TestAccountPage:base_page.py:58 RegisterPage: Check if element ('xpath', "//button[contains(text(), 'Continue')]") is present
+[32mINFO    [0m TestAccountPage:base_page.py:58 RegisterPage: Check if element ('xpath', "//input[@name='agree']") is present
+[32mINFO    [0m TestAccountPage:base_page.py:42 RegisterPage: Clicking element: ('xpath', "//button[contains(text(), 'Continue')]")
+[32mINFO    [0m TestAccountPage:base_page.py:42 TopPanel: Clicking element: ('xpath', "//i[@class='fa-solid fa-user']")
+[32mINFO    [0m TestAccountPage:base_page.py:42 TopPanel: Clicking element: ('xpath', "//a[@class='dropdown-item'][contains(text(), 'My Account')]")
+[32mINFO    [0m TestAccountPage:base_page.py:58 MyAccountPage: Check if element ('xpath', "//div[@id='content']//a[contains(text(), 'Edit your account information')]") is present
+[32mINFO    [0m TestAccountPage:base_page.py:58 MyAccountPage: Check if element ('xpath', "//div[@id='content']//a[contains(text(), 'Change your password')]") is present
+[32mINFO    [0m TestAccountPage:base_page.py:58 MyAccountPage: Check if element ('xpath', "//div[@id='content']//a[contains(text(), 'Modify your address book entries')]") is present
+[32mINFO    [0m TestAccountPage:base_page.py:58 MyAccountPage: Check if element ('xpath', "//div[@id='content']//a[contains(text(), 'Modify your wish list')]") is present
