@@ -32,12 +32,12 @@ class TestAccountPage:
         self.page.open_my_account_tab('My Account')
         self.page.wait_title('My Account')
 
-    @allure.story('Проверка раздела на странице My Account')
+    @allure.title('Проверка раздела на странице My Account')
     def test_check_my_account_page(self, browser):
         page = MyAccountPage(browser)
         page.check_my_account_tabs()
 
-    @allure.story('Проверка перехода по разделам из раздела My Accounts и возвращение по кнопке Back')
+    @allure.title('Проверка перехода по разделам из раздела My Accounts и возвращение по кнопке Back')
     @pytest.mark.parametrize('tab_name, title', [('Edit Account', 'My Account Information'),
                                                  ('Password', 'Change Password'),
                                                  ('Address Book', ''),
@@ -48,7 +48,7 @@ class TestAccountPage:
         page.click_back_button()
         page.wait_title('My Account')
 
-    @allure.story('Проверка изменения данных в профиле c пустыми обязательными полями')
+    @allure.title('Проверка изменения данных в профиле c пустыми обязательными полями')
     def test_check_update_personal_details(self, browser):
         page = MyAccountPage(browser)
         page.go_to_tab('Edit Account', title='My Account Information')
@@ -65,7 +65,7 @@ class TestAccountPage:
             MyAccountPage.ERROR_EMAIL_MESSAGE).text == 'E-Mail Address does not appear to be valid!', \
             "При не заполненном поле E-Mail не отображается ошибка E-Mail Address does not appear to be valid!"
 
-    @allure.story("Проверка изменения данных с некорректными значениями - диапазон больше 32 символов")
+    @allure.title("Проверка изменения данных с некорректными значениями - диапазон больше 32 символов")
     def test_check_update_personal_details_with_incorrect_value(self, browser):
         incorrect_value = '1234567890123456789012345678901234'
         page = MyAccountPage(browser)
@@ -79,7 +79,7 @@ class TestAccountPage:
             MyAccountPage.ERROR_LASTNAME_MESSAGE).text == 'Last Name must be between 1 and 32 characters!', \
             "При не заполненном поле Last Name не отображается ошибка Last Name must be between 1 and 32 characters!"
 
-    @allure.story("Проверка изменения данных Имени и Фамилии")
+    @allure.title("Проверка изменения данных Имени и Фамилии")
     def test_check_update_personal_details_with_incorrect_value(self, browser):
         new_first_name = 'new_first_name'
         new_last_name = 'new_last_name'
@@ -91,7 +91,7 @@ class TestAccountPage:
                                                                         'updated.'), \
             "После обновления данных не отображается сообщение: Success: Your account has been successfully updated."
 
-    @allure.story('Проверка создания нового адреса')
+    @allure.title('Проверка создания нового адреса')
     def test_check_add_address(self, browser):
         page = MyAccountPage(browser)
         page.go_to_tab('Address Book')

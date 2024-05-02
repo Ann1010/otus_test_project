@@ -33,7 +33,7 @@ class TestChangePasswordPage:
         self.page.open_my_account_tab('My Account')
         self.page.wait_title('My Account')
 
-    @allure.story('Проверка изменения пароля аккаунта без заполненных обязательных полей')
+    @allure.title('Проверка изменения пароля аккаунта без заполненных обязательных полей')
     def test_check_change_password_without_required_fields(self, browser):
         page = MyAccountPage(browser)
         page.go_to_tab('Password', title='Change Password')
@@ -49,7 +49,7 @@ class TestChangePasswordPage:
                 ChangePasswordPage.ERROR_CONFIRM_MESSAGE).text == "Password confirmation does not match password!", \
                 f"Для поля Password Confirm не отображается подсказка Password confirmation does not match password!"
 
-    @allure.story('Проверка заполнения поля Password некорректными значениями')
+    @allure.title('Проверка заполнения поля Password некорректными значениями')
     def test_check_change_password_with_incorrect_password(self, browser):
         page = MyAccountPage(browser)
         page.go_to_tab('Password', title='Change Password')
@@ -64,7 +64,7 @@ class TestChangePasswordPage:
             assert page.is_element_present(ChangePasswordPage.ERROR_PASSWORD_MESSAGE), \
                 f"Для поля Password не отображается подсказка Password must be between 4 and 20 characters!"
 
-    @allure.story('Проверка заполнения поля Password Confirm несовпадающим значением')
+    @allure.title('Проверка заполнения поля Password Confirm несовпадающим значением')
     def test_check_change_password_with_incorrect_confirm(self, browser):
         page = MyAccountPage(browser)
         page.go_to_tab('Password', title='Change Password')
@@ -73,7 +73,7 @@ class TestChangePasswordPage:
             ChangePasswordPage.ERROR_CONFIRM_MESSAGE).text == "Password confirmation does not match password!", \
             f"Для поля Password Confirm не отображается подсказка Password confirmation does not match password!"
 
-    @allure.story('Проверка изменения пароля')
+    @allure.title('Проверка изменения пароля')
     def test_check_change_password(self, browser):
         new_password = '123456aS!'
         page = MyAccountPage(browser)

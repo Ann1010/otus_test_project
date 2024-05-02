@@ -37,7 +37,7 @@ class TestOrdersPage:
         self.page.open_my_account_tab('My Account')
         self.page.wait_title('My Account')
 
-    @allure.story('Проверка создания заказа и его отображение')
+    @allure.title('Проверка создания заказа и его отображение')
     def test_check_create_order(self, browser):
         page = MyAccountPage(browser)
         page.go_to_tab('Address Book')

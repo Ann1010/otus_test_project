@@ -33,7 +33,7 @@ class TestWishListPage:
         self.page.open_my_account_tab('My Account')
         self.page.wait_title('My Account')
 
-    @allure.story('Проверка добавления продукта в Wish List и его отображение в разделе')
+    @allure.title('Проверка добавления продукта в Wish List и его отображение в разделе')
     def test_add_product_to_wish_list(self, browser):
         NavigationPanel(browser).go_to_top_tab('Phones & PDAs')
         CatalogPage(browser).add_to_wish_list('HTC Touch HD')
@@ -41,7 +41,7 @@ class TestWishListPage:
         page = WishListPage(browser)
         page.check_wish_list(['HTC Touch HD'])
 
-    @allure.story('Проверка удаления продукта из Wish List')
+    @allure.title('Проверка удаления продукта из Wish List')
     def test_delete_product_from_wish_list(self, browser):
         product_name = 'iPhone'
         NavigationPanel(browser).go_to_top_tab('Phones & PDAs')
