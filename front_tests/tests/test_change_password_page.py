@@ -14,13 +14,13 @@ sys.path.append(".")
 
 
 @pytest.mark.front
+@pytest.mark.change_password
 @allure.epic("Front")
 @allure.feature("Change Password Page")
 class TestChangePasswordPage:
     first_name = 'test_user'
     last_name = 'test_lastname'
     email = help.random_email()
-    print(email)
     password = '123456aS!'
 
     @pytest.fixture(scope="class", autouse=True)
@@ -76,7 +76,6 @@ class TestChangePasswordPage:
     @allure.story('Проверка изменения пароля')
     def test_check_change_password(self, browser):
         new_password = '123456aS!'
-        print(f'Новый пароль: {new_password}')
         page = MyAccountPage(browser)
         page.go_to_tab('Password', title='Change Password')
         ChangePasswordPage(browser).change_password(new_password, new_password)

@@ -12,6 +12,7 @@ sys.path.append(".")
 
 
 @pytest.mark.api
+@pytest.mark.pet
 @allure.epic('API')
 @allure.feature('Pet')
 class TestPetApi:

@@ -14,13 +14,13 @@ sys.path.append(".")
 
 
 @pytest.mark.front
+@pytest.mark.wish_list
 @allure.epic("Front")
 @allure.feature('My Wishlist Page')
 class TestWishListPage:
     first_name = 'test_user_firstname'
     last_name = 'test_user_lastname'
     email = help.random_email()
-    print(email)
     password = '123456aS!'
 
     @pytest.fixture(scope="class", autouse=True)

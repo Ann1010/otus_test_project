@@ -11,6 +11,7 @@ sys.path.append(".")
 
 
 @pytest.mark.api
+@pytest.mark.user
 @allure.epic('API')
 @allure.feature('User')
 class TestUserApi:
@@ -40,7 +41,6 @@ class TestUserApi:
                 "password": "ivanov_ivan_password"}
         response = user_api.get_user_login(body, expected_error=True)
         check.status_code(200, response)
-        print(response.json())
 
     @allure.title('Проверка входа пользователя в систему')
     def test_user_login(self, logger_test):

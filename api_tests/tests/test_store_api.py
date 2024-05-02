@@ -12,6 +12,7 @@ sys.path.append(".")
 
 
 @pytest.mark.api
+@pytest.mark.store
 @allure.epic('API')
 @allure.feature('Order')
 class TestOrderApi:

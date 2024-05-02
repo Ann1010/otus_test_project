@@ -18,13 +18,13 @@ sys.path.append(".")
 
 
 @pytest.mark.front
+@pytest.mark.orders
 @allure.epic("Front")
 @allure.feature('Orders Page')
 class TestOrdersPage:
     first_name = 'test_user'
     last_name = 'test_lastname'
     email = help.random_email()
-    print(email)
     password = '123456aS!'
 
     @pytest.fixture(scope="class", autouse=True)
